@@ -26,22 +26,16 @@ public class Main {
 
     public static int[] merge(int[] teamA, int[] teamB) {
         int[] merged = new int[10];
-        int i = 0, j = 0, k = 0;
+        int i = 0, j = 0;
 
-        while (k < 10 && i < teamA.length && j < teamB.length) {
+        for (int k = 0; k < 10; k++) {
             if (teamA[i] >= teamB[j]) {
-                merged[k++] = teamA[i++];
+                merged[k] = teamA[i];
+                i++;
             } else {
-                merged[k++] = teamB[j++];
+                merged[k] = teamB[j];
+                j++;
             }
-        }
-
-        while (k < 10 && i < teamA.length) {
-            merged[k++] = teamA[i++];
-        }
-
-        while (k < 10 && j < teamB.length) {
-            merged[k++] = teamB[j++];
         }
 
         return merged;
